@@ -9,32 +9,25 @@ import {
 } from '@element-plus/icons-vue'
 
 import { useTitleStore } from '@/store'
-import { menuList } from './menu'
+import { menuTree } from './menu'
 import { useRouter } from 'vue-router'
 import { onMounted } from 'vue'
+
+import Breadcrumb from './components/ScBreadcrumb.vue'
 
 const store = useTitleStore()
 const router = useRouter()
 
 onMounted(() => {
-  store.$patch({
-    title: "主页",
-  })
 })
 
 function handleCurtainClick(arg){
-  store.$patch({
-    title: "主页",
-  })
-  router.push({ name: "Index", params: { label: "主页" } })
+  router.push({ name: "Index"  })
   
 }
 
 function handleMenuClick(item) {
-  store.$patch({
-    title: item.label,
-  })
-  router.push({ name: item.name, params: { label: item.label } })
+  router.push({ name: item.name  })
 }
 </script>
 
@@ -48,12 +41,12 @@ function handleMenuClick(item) {
       <el-divider />
       <div>
         <el-menu
-        style="background-color: #f4f4f4;"
+        style="background-color: #f4f4f4;border: none;"
         :default-active="$route.path"
         class="el-menu-vertical-demo">
-        <template v-for="item in menuList">
+        <template v-for="item in menuTree">
           <el-sub-menu v-if="item.children" :key="item.path" :index="item.path">
-            <template #title>{{ item.label }}</template>
+            <template #title>{{ item.title }}</template>
             <el-menu-item
               style="background-color: #f4f4f4;"
               v-for="sub in item.children"
@@ -61,7 +54,7 @@ function handleMenuClick(item) {
               :index="sub.path"
               @click="handleMenuClick(sub)"
             >
-              {{ sub.label }}
+              {{ sub.title }}
             </el-menu-item>
           </el-sub-menu>
 
@@ -69,7 +62,7 @@ function handleMenuClick(item) {
             v-else
             :index="item.path"
           >
-            {{ item.label }}
+            {{ item.title }}
           </el-menu-item>
         </template>
       </el-menu>
@@ -86,7 +79,10 @@ function handleMenuClick(item) {
       <el-divider />
 
       <div class="content">
-        <RouterView />
+        <Breadcrumb />
+        <div class="content-routerview">
+          <RouterView />
+        </div>
       </div>
     </div>
 
@@ -123,6 +119,8 @@ body {
   /* 父元素有高度 */
   height: 100%;
 
+  padding: 0 20px;
+
   display: flex;
   flex-direction: column;
 }
@@ -152,6 +150,8 @@ body {
   flex: 1;
   /* 防止溢出 */
   overflow: hidden;
+
+  padding: 0 20px;
 }
 
 /* 页头 */
@@ -178,11 +178,19 @@ header h1{
   padding: 20px;
   /* 主内容区域溢出时显示滚动条 */
   overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.content .content-routerview{
+  flex: 1;
+  overflow: auto;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .main {
+  .container {
     /* 屏幕较小，侧边栏和主内容垂直排列 */
     flex-direction: column;
   }

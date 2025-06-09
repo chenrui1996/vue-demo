@@ -9,7 +9,7 @@ import App from './App.vue'
 import router from './router'
 
 createApp(App)
+  .use(createPinia())
   .use(ElementPlus)
   .use(router)
-  .use(createPinia())
   .mount('#app')

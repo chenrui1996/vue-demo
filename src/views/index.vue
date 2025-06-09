@@ -1,17 +1,18 @@
-<template>
-  <div>主页</div>
-</template>
-
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-import { initView } from '@/common'
+import { useTitleStore } from '@/store'
 
-const title = ref("")
 onMounted(() => {
-  title.value = initView()
 });
 
 </script>
+
+<template>
+   <!-- <span>{{ useTitleStore().title }}</span> -->
+   <p>这是{{ useTitleStore().title }}</p>
+</template>
+
+
 
 <style scoped>
 
