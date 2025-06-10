@@ -11,3 +11,12 @@ export function findInTree(nodes, predicate) {
     return false;
   })?._found || nodes.find(predicate) || null;
 }
+
+// getType(null);        // "Null"
+// getType([]);          // "Array"
+// getType({});          // "Object"
+// getType(() => {});    // "Function"
+// getType(new Date());  // "Date"
+export function getType(val) {
+  return Object.prototype.toString.call(val).slice(8, -1)
+}

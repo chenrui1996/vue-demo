@@ -44,8 +44,9 @@ function handleMenuClick(item) {
         style="background-color: #f4f4f4;border: none;"
         :default-active="$route.path"
         class="el-menu-vertical-demo">
-        <template v-for="item in menuTree">
-          <el-sub-menu v-if="item.children" :key="item.path" :index="item.path">
+        <!-- 使用template隔离v-for和v-if -->
+        <template v-for="item in menuTree" :key="item.path" >
+          <el-sub-menu v-if="item.children" :index="item.path">
             <template #title>{{ item.title }}</template>
             <el-menu-item
               style="background-color: #f4f4f4;"

@@ -8,13 +8,13 @@ export const menuTree = [
         path: '/Essentials/TemplateSyntax',
         name: 'TemplateSyntax',
         title: '模版语法',
-        component: () => import('@/views/Essentials/TemplateSyntax.vue')
+        component: () => import('@/views/essentials/TemplateSyntax.vue')
       },
       {
         path: '/Essentials/ReactivityFundamentals',
         name: 'ReactivityFundamentals',
         title: '响应式基础',
-        component: () => import('@/views/Essentials/ReactivityFundamentals.vue')
+        component: () => import('@/views/essentials/ReactivityFundamentals.vue')
       },
       {
         path: '/Essentials/ComputedProperties',
@@ -27,6 +27,18 @@ export const menuTree = [
         name: 'ConditionalRendering',
         title: '条件渲染',
         component: () => import('@/views/essentials/ConditionalRendering.vue')
+      },
+      {
+        path: '/Essentials/ListRendering',
+        name: 'ListRendering',
+        title: '列表渲染',
+        component: () => import('@/views/essentials/ListRendering.vue')
+      },
+      {
+        path: '/Essentials/EventHandling',
+        name: 'EventHandling',
+        title: '事件处理',
+        component: () => import('@/views/essentials/EventHandling.vue')
       },
     ]
   },
