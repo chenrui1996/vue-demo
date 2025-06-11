@@ -15,7 +15,7 @@
   </el-card>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref} from 'vue';
 
 const loggedIn = ref(false)

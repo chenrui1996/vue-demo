@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, reactive,toRefs } from 'vue'
 
 onMounted(() => {
@@ -135,13 +135,13 @@ let replaceCounter = 0;
 let replace1 = reactive({ count1: 0 })
 
 function replaceReactive() {
-  replace1 = { summer: replaceCounter++ } // 旧引用失效，原有响应断裂
+  replace1 = { count1: replaceCounter++ } // 旧引用失效，原有响应断裂
 }
 
 let replace2 =  ref({ count2: 0 })
 
 function replaceRef() {
-  replace2.value =  { summer: replaceCounter++ }  // 没有问题，视图正常更新
+  replace2.value =  { count2: replaceCounter++ }  // 没有问题，视图正常更新
 }
 
 //Unwrapping
@@ -153,12 +153,12 @@ const state1 = reactive({ count: 0 })
 // const { count1 } = state1
 
 // 因此当其他函数调用时我们必须传入整个对象以保持响应性
-function addState(state){
+function addState(state: { count: number; }){
   state.count ++
 }
 
 //传入解构后的参数无效
-function addStateWithPro(para){
+function addStateWithPro(para: number){
   para ++
 }
 

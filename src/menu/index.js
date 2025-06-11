@@ -40,6 +40,18 @@ export const menuTree = [
         title: '事件处理',
         component: () => import('@/views/essentials/EventHandling.vue')
       },
+      {
+        path: '/Essentials/FormInputBindings',
+        name: 'FormInputBindings',
+        title: '表单输入绑定',
+        component: () => import('@/views/essentials/FormInputBindings.vue')
+      },
+      {
+        path: '/Essentials/Watchers',
+        name: 'Watchers',
+        title: '侦听器',
+        component: () => import('@/views/essentials/Watchers.vue')
+      },
     ]
   },
 

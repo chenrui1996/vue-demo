@@ -16,7 +16,7 @@
         <template v-if="getType(value) === 'Object'">
           {{ key }}:
           <ul>
-            <li v-for="(value, key) in value" :key="key">{{ key }}: {{ value }}</li>
+            <li v-for="(v, k) in value" :key="key">{{ k }}: {{ v }}</li>
           </ul>
         </template>
         <template v-else>
@@ -40,12 +40,12 @@
   <br/>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { fakerZH_CN as faker } from '@faker-js/faker' 
 import { getType } from '@/common'
 
-const airlines = ref([])
+const airlines = ref<any[]>([])
 const person = ref({})
 const number = ref(0)
 const icon = ref('😊')

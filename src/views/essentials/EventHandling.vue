@@ -17,11 +17,11 @@
     <p>在内联事件处理器中访问事件参数</p> 
     <!-- 使用特殊的 $event 变量 -->
     <el-button @click="warn('Form cannot be submitted yet.', $event)">
-      提交
+      提交1
     </el-button>
     <!-- 使用内联箭头函数 -->
     <el-button @click="(event) => warn('Form cannot be submitted yet.', event)">
-      提交
+      提交2
     </el-button>
   </el-card>
   <br/>
@@ -84,10 +84,25 @@
     <p>passive 被动监听 例如被动监听滚动（不会阻止默认滚动）</p>
     <p>passive 修饰符一般用于触摸事件的监听器，可以用来改善移动端设备的滚屏性能。</p>
     <div
-      class="scroll-box"
+      style="height:100px;background-color: aqua;margin: 10px 0;overflow: auto;"
       @wheel.passive="handleScroll"
     >
-      滚动我
+      <div style="height:200px;">
+        <ul>
+          <li>滚动我</li>
+          <li>滚动我</li>
+          <li>滚动我</li>
+          <li>滚动我</li>
+          <li>滚动我</li>
+          <li>滚动我</li>
+          <li>滚动我</li>
+          <li>滚动我</li>
+          <li>滚动我</li>
+          <li>滚动我</li>
+          <li>滚动我</li>
+        </ul>
+      </div>
+      
     </div>
   </el-card>
   <br/>
@@ -146,8 +161,10 @@
   </el-card>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+
 import { ref, onMounted } from 'vue';
+import { ElMessage, MessageParamsWithType} from 'element-plus'
 
 const count = ref(0)
 
@@ -156,44 +173,44 @@ onMounted(() => {
 });
 
 function sayHello(){
-  alert("你家人好嘛？")
+  ElMessage.primary("你家人好嘛？")
 }
 
-function sayMessage(message){
-  alert(message)
+function sayMessage(message: MessageParamsWithType){
+  ElMessage.primary(message)
 }
 
-function warn(message, event) {
+function warn(message: any, event: { preventDefault: () => void; srcElement: { innerText: any; }; }) {
   // 这里可以访问原生事件
   if (event) {
     // 阻止默认行为，如表单提交链接跳转
     event.preventDefault()
-    alert(`${event.srcElement.innerText} : ${message}`)
+    ElMessage.primary(`${event.srcElement.innerText} : ${message}`)
   }
   
 }
 
 function handleSubmit() {
-  alert("表单提交被阻止！");
+  ElMessage.primary("表单提交被阻止！");
 }
 
 function handleClickOnce() {
-  alert("你只会看到这一次！");
+  ElMessage.primary("你只会看到这一次！");
 }
 
 function handleSelfClick() {
-  alert("你点击按钮！");
+  ElMessage.primary("你点击按钮！");
 }
 
-function parentClicked(from, event) {
+function parentClicked(from: any, event: { target: any; currentTarget: any; }) {
   if(event.target !== event.currentTarget){
-    alert(`父元素${from} 被点击（冒泡）`);
+    ElMessage.primary(`父元素${from} 被点击（冒泡）`);
   }
-  alert(`父元素${from} 被点击（本身）`);
+  ElMessage.primary(`父元素${from} 被点击（本身）`);
 }
 
 function handleScroll() {
-  alert("滚动事件触发");
+  ElMessage.primary("滚动事件触发");
 }
 
 const message = ref('')
@@ -204,16 +221,16 @@ function submitMessage() {
     submitted.value = message.value
     message.value = ''
   } else {
-    alert('内容不能为空')
+    ElMessage.primary('内容不能为空')
   }
 }
 
 function cancelEdit() {
   message.value = ''
-  alert('编辑已取消')
+  ElMessage.primary('编辑已取消')
 }
 
-function insertTab(event) {
+function insertTab(event: { target: any; }) {
   const textarea = event.target
   const start = textarea.selectionStart
   const end = textarea.selectionEnd
@@ -233,31 +250,31 @@ const mouseY = ref(0);
 const mouseDownUp = ref("按下或松开鼠标")
 const mouseEnterLeave = ref("鼠标进入和离开区域")
 
-function handleClick(event) {
-  alert('单击事件触发');
+function handleClick(event: any) {
+  ElMessage.primary('单击事件触发');
 }
 
-function handleDoubleClick(event) {
-  alert('双击事件触发');
+function handleDoubleClick(event: any) {
+  ElMessage.primary('双击事件触发');
 }
 
-function handleMouseDown(event) {
+function handleMouseDown(event: any) {
   mouseDownUp.value = `鼠标按下`
 }
 
-function handleMouseUp(event) {
+function handleMouseUp(event: any) {
   mouseDownUp.value = `鼠标松开`
 }
 
-function handleMouseEnter(event) {
+function handleMouseEnter(event: any) {
   mouseEnterLeave.value = `鼠标进入`
 }
 
-function handleMouseLeave(event) {
+function handleMouseLeave(event: any) {
   mouseEnterLeave.value = `鼠标离开`
 }
 
-function handleMouseMove(event) {
+function handleMouseMove(event: { offsetX: number; offsetY: number; }) {
   mouseX.value = event.offsetX;
   mouseY.value = event.offsetY;
 }
