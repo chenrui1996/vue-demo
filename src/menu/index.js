@@ -52,6 +52,12 @@ export const menuTree = [
         title: '侦听器',
         component: () => import('@/views/essentials/Watchers.vue')
       },
+      {
+        path: '/Essentials/TemplateRefs',
+        name: 'TemplateRefs',
+        title: '模板引用',
+        component: () => import('@/views/essentials/TemplateRefs.vue')
+      },
     ]
   },
 
