@@ -58,7 +58,32 @@ export const menuTree = [
         title: '模板引用',
         component: () => import('@/views/essentials/TemplateRefs.vue')
       },
+
     ]
   },
-
+  {
+    name: "ComponentsInDepth",
+    title: "组件",
+    path: "/ComponentsInDepth",
+    children: [
+      {
+        path: '/ComponentsInDepth/Basic',
+        name: 'ComponentsInDepthBasic',
+        title: '组件基础',
+        component: () => import('@/views/components-in-depth/Basic.vue')
+      },
+      {
+        path: '/ComponentsInDepth/Props',
+        name: 'ComponentsInDepthProps',
+        title: '组件属性',
+        component: () => import('@/views/components-in-depth/Props.vue')
+      },
+      {
+        path: '/ComponentsInDepth/FallthroughAttributes',
+        name: 'FallthroughAttributes',
+        title: 'Attributes透传',
+        component: () => import('@/views/components-in-depth/FallthroughAttributes.vue')
+      },
+    ]
+  }
 ]

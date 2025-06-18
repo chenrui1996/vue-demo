@@ -33,7 +33,11 @@ function menuToRoutes(menuTree) {
   })
 }
 
-router.addRoute(...menuToRoutes(menuTree))
+const routes = menuToRoutes(menuTree)
+// router.addRoute() 不能批量添加路由，只能一次添加一条。
+// router.addRoute(...routes)
+routes.forEach(route => router.addRoute(route))
+
 
 router.beforeEach((to, from) => {
   if (to.path === "/") {
