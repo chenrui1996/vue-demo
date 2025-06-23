@@ -21,13 +21,13 @@ const router = useRouter()
 onMounted(() => {
 })
 
-function handleCurtainClick(arg){
-  router.push({ name: "Index"  })
-  
+function handleCurtainClick(arg) {
+  router.push({ name: "Index" })
+
 }
 
 function handleMenuClick(item) {
-  router.push({ name: item.name  })
+  router.push({ name: item.name })
 }
 </script>
 
@@ -35,46 +35,38 @@ function handleMenuClick(item) {
   <div class="container">
     <aside class="sidebar">
       <div class="curtain" @click="handleCurtainClick">
-        <el-icon style="height: 60px; justify-content: center; align-items: center; margin: 0 10px 0 30px;"><ElemeFilled /></el-icon>
+        <el-icon style="height: 60px; justify-content: center; align-items: center; margin: 0 10px 0 30px;">
+          <ElemeFilled />
+        </el-icon>
         <span>Vue Demo</span>
       </div>
       <el-divider />
-      <div>
-        <el-menu
-        style="background-color: #f4f4f4;border: none;"
-        :default-active="$route.path"
-        class="el-menu-vertical-demo">
-        <!-- 使用template隔离v-for和v-if -->
-        <template v-for="item in menuTree" :key="item.path" >
-          <el-sub-menu v-if="item.children" :index="item.path">
-            <template #title>{{ item.title }}</template>
-            <el-menu-item
-              style="background-color: #f4f4f4;"
-              v-for="sub in item.children"
-              :key="sub.path"
-              :index="sub.path"
-              @click="handleMenuClick(sub)"
-            >
-              {{ sub.title }}
-            </el-menu-item>
-          </el-sub-menu>
+      <div style="overflow: auto;">
+        <el-menu style="background-color: #f4f4f4;border: none;" :default-active="$route.path"
+          class="el-menu-vertical-demo">
+          <!-- 使用template隔离v-for和v-if -->
+          <template v-for="item in menuTree" :key="item.path">
+            <el-sub-menu v-if="item.children" :index="item.path">
+              <template #title>{{ item.title }}</template>
+              <el-menu-item style="background-color: #f4f4f4;" v-for="sub in item.children" :key="sub.path"
+                :index="sub.path" @click="handleMenuClick(sub)">
+                {{ sub.title }}
+              </el-menu-item>
+            </el-sub-menu>
 
-          <el-menu-item
-            v-else
-            :index="item.path"
-          >
-            {{ item.title }}
-          </el-menu-item>
-        </template>
-      </el-menu>
+            <el-menu-item v-else :index="item.path" @click="handleMenuClick(sub)">
+              {{ item.title }}
+            </el-menu-item>
+          </template>
+        </el-menu>
       </div>
-      
+
     </aside>
-   
-    
+
+
     <div class="main">
       <header>
-        <h1>{{store.title}}</h1>
+        <h1>{{ store.title }}</h1>
       </header>
 
       <el-divider />
@@ -91,7 +83,6 @@ function handleMenuClick(item) {
 </template>
 
 <style>
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -126,20 +117,20 @@ body {
   flex-direction: column;
 }
 
-.sidebar .curtain{
+.sidebar .curtain {
   height: 60px;
-  text-align:center;
+  text-align: center;
   display: flex;
   flex-direction: row;
 }
 
-.sidebar .curtain span{
+.sidebar .curtain span {
   margin: 0;
   font-size: larger;
   line-height: 60px;
 }
 
-.sidebar .el-divider{
+.sidebar .el-divider {
   margin: 0;
 }
 
@@ -159,16 +150,16 @@ body {
 header {
   text-align: center;
   height: 60px;
-  
+
 }
 
-header h1{
+header h1 {
   margin: 0;
   font-size: larger;
   line-height: 60px;
 }
 
-.main .el-divider{
+.main .el-divider {
   margin: 0;
 }
 
@@ -184,7 +175,7 @@ header h1{
   flex-direction: column;
 }
 
-.content .content-routerview{
+.content .content-routerview {
   flex: 1;
   overflow: auto;
 }
@@ -195,6 +186,7 @@ header h1{
     /* 屏幕较小，侧边栏和主内容垂直排列 */
     flex-direction: column;
   }
+
   .sidebar {
     width: 100%;
     height: auto;

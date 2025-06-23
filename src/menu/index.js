@@ -84,6 +84,24 @@ export const menuTree = [
         title: 'Attributes透传',
         component: () => import('@/views/components-in-depth/FallthroughAttributes.vue')
       },
+      {
+        path: '/ComponentsInDepth/Events',
+        name: 'ComponentsInDepthEvents',
+        title: '组件事件',
+        component: () => import('@/views/components-in-depth/Events.vue')
+      },
+      {
+        path: '/ComponentsInDepth/Slots',
+        name: 'ComponentsInDepthSlots',
+        title: '组件插槽',
+        component: () => import('@/views/components-in-depth/Slot.vue')
+      },
+      {
+        path: '/ComponentsInDepth/ProvideAndInject',
+        name: 'ProvideAndInject',
+        title: '依赖注入',
+        component: () => import('@/views/components-in-depth/ProvideAndInject.vue')
+      },
     ]
   }
 ]
