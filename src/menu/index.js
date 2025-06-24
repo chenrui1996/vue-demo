@@ -103,5 +103,24 @@ export const menuTree = [
         component: () => import('@/views/components-in-depth/ProvideAndInject.vue')
       },
     ]
+  },
+  {
+    name: "Reusability",
+    title: "逻辑复用",
+    path: "/Reusability",
+    children: [
+      {
+        path: '/Reusability/CustomDirectives',
+        name: 'CustomDirectives',
+        title: '自定义指令',
+        component: () => import('@/views/reusability/CustomDirectives.vue')
+      },
+      {
+        path: '/Reusability/BuiltInComponents',
+        name: 'BuiltInComponents',
+        title: '内置组件',
+        component: () => import('@/views/reusability/BuiltInComponents.vue')
+      },
+    ]
   }
 ]
