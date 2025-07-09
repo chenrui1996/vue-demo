@@ -122,5 +122,24 @@ export const menuTree = [
         component: () => import('@/views/reusability/BuiltInComponents.vue')
       },
     ]
+  },
+  {
+    name: "ScalingUp",
+    title: "规模化",
+    path: "/ScalingUp",
+    children: [
+      {
+        path: '/ScalingUp/VueRouter',
+        name: 'VueRouter',
+        title: 'Vue Router',
+        component: () => import('@/views/scaling-up/VueRouter.vue')
+      },
+      {
+        path: '/ScalingUp/Pagination',
+        name: 'Pagination',
+        title: '分页视图',
+        component: () => import('@/views/scaling-up/Pagination.vue')
+      },
+    ]
   }
 ]

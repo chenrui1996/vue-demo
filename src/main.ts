@@ -16,33 +16,38 @@ import ScGlobalComponent from '@/components/ScGlobalComponent.vue'
 
 import { drag } from '@/common'
 
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
-createApp(App)
-  .directive('drag', {
-    created(el, binding) {
-      console.log('created', el)
-    },
-    beforeMount(el, binding) {
-      console.log('beforeMount', el)
-    },
-    mounted(el, binding) {
-      console.log('mounted', el)
-      drag(el, binding)
-    },
-    beforeUpdate(el, binding) {
-      console.log('beforeUpdate', el)
-    },
-    updated(el, binding) {
-      console.log('updated', el)
-      drag(el, binding)
-    },
-    beforeUnmount(el, binding) {
-      console.log('beforeUnmount', el)
-    },
-    unmounted(el, binding) {
-      console.log('unmounted', el)
-    }
-  })
+
+const app = createApp(App)
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+app.directive('drag', {
+  created(el, binding) {
+    console.log('created', el)
+  },
+  beforeMount(el, binding) {
+    console.log('beforeMount', el)
+  },
+  mounted(el, binding) {
+    console.log('mounted', el)
+    drag(el, binding)
+  },
+  beforeUpdate(el, binding) {
+    console.log('beforeUpdate', el)
+  },
+  updated(el, binding) {
+    console.log('updated', el)
+    drag(el, binding)
+  },
+  beforeUnmount(el, binding) {
+    console.log('beforeUnmount', el)
+  },
+  unmounted(el, binding) {
+    console.log('unmounted', el)
+  }
+})
   .component('ScGlobalComponent', ScGlobalComponent)
   .use(createPinia().use(piniaPluginPersistedstate))
   .use(ElementPlus)

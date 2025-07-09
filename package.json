@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
     "@faker-js/faker": "^9.8.0",
     "element-plus": "^2.9.11",
     "mitt": "^3.0.1",

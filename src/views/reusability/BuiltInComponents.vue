@@ -48,11 +48,11 @@
     <el-checkbox v-model="teleportToBody">传送到body</el-checkbox>
     <div style="position: relative; height: 200px;">
       <teleport v-if="teleportToBody" to="body">
-        <div v-drag:parent class="suspension">
+        <div class="suspension">
           <span style="line-height: 100px;">悬浮框</span>
         </div>
       </teleport>
-      <div v-else v-drag:parent class="suspension">
+      <div v-else class="suspension">
         <span style="line-height: 100px;">悬浮框</span>
       </div>
     </div>
@@ -117,14 +117,16 @@ onMounted(() => {
 
 .suspension {
   position: absolute;
-  background-color: darkcyan;
-  width: 100px;
+  background-color: black;
+  width: 300px;
   height: 100px;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  /* margin: auto; */
+  margin: auto;
   text-align: center;
+  opacity: 0.65;
+  color: aliceblue;
 }
 </style>
