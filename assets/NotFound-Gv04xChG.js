@@ -1,1 +1,0 @@
-import{_ as e,o as s,c as n,d as t,a}from"./index-BVJPrcnl.js";const _="/vue-demo/images/404-error_4263703.png",c={class:"continer"},r={__name:"NotFound",setup(d,{emit:i}){return s(()=>{}),(m,o)=>(a(),n("div",c,o[0]||(o[0]=[t("div",{class:"notfound"},[t("img",{src:_,alt:"404"})],-1)])))}},u=e(r,[["__scopeId","data-v-c2f6b0dc"]]);export{u as default};

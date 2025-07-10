@@ -1,1 +1,0 @@
-import{o as e,c as a,a as t}from"./index-BVJPrcnl.js";const l={__name:"Page3",setup(o,{emit:i}){return e(()=>{}),(n,r)=>(t(),a("div",null,"Lorem ipsum dolor sit amet consectetur adipisicing elit. Non inventore voluptatem placeat quo ad voluptas cumque ratione vitae error neque sapiente nemo, pariatur labore laudantium deleniti facilis ullam beatae in."))}};export{l as default};

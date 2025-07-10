@@ -1,1 +1,0 @@
-import{_ as o,o as t,c as s,a,d as r}from"./index-BVJPrcnl.js";const _={class:"footer"},n={__name:"FooterView2",setup(c,{emit:p}){return t(()=>{}),(d,e)=>(a(),s("div",_,e[0]||(e[0]=[r("p",null,"@footer2",-1)])))}},f=o(n,[["__scopeId","data-v-a52f4359"]]);export{f as default};

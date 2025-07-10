@@ -1,0 +1,1 @@
+import{_ as a,o as t,c as s,a as o,d as _}from"./index-BQcwO47v.js";const r={class:"header"},n={__name:"HeaderView1",setup(c,{emit:d}){return t(()=>{}),(p,e)=>(o(),s("div",r,e[0]||(e[0]=[_("p",null," 标题1 ",-1)])))}},l=a(n,[["__scopeId","data-v-f22e6af0"]]);export{l as default};

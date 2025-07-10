@@ -1,0 +1,1 @@
+import{_ as o,o as t,c as s,a,d as r}from"./index-BQcwO47v.js";const _={class:"footer"},c={__name:"FooterView1",setup(n,{emit:d}){return t(()=>{}),(p,e)=>(a(),s("div",_,e[0]||(e[0]=[r("p",null,"@footer1",-1)])))}},l=o(c,[["__scopeId","data-v-772dbec1"]]);export{l as default};
