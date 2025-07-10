@@ -11,7 +11,9 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
     "@faker-js/faker": "^9.8.0",
+    "axios": "^1.10.0",
     "element-plus": "^2.9.11",
+    "flatted": "^3.3.3",
     "mitt": "^3.0.1",
     "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "^4.3.0",

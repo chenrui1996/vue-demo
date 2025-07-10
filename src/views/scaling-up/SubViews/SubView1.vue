@@ -5,6 +5,7 @@
     <el-descriptions-item label="fullPath">{{ $route.fullPath }}</el-descriptions-item>
     <el-descriptions-item label="query">{{ $route.query }}</el-descriptions-item>
     <el-descriptions-item label="params">{{ $route.params }}</el-descriptions-item>
+
   </el-descriptions>
 </template>
 

@@ -140,6 +140,12 @@ export const menuTree = [
         title: '分页视图',
         component: () => import('@/views/scaling-up/Pagination.vue')
       },
+      {
+        path: '/ScalingUp/Pinia',
+        name: 'Pinia',
+        title: 'Pinia',
+        component: () => import('@/views/scaling-up/Pinia.vue')
+      },
     ]
   }
 ]

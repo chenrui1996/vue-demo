@@ -24,3 +24,39 @@ export const useWatchStore = defineStore('immediateFlag', {
   //存储在内存
   persist: true
 })
+
+
+export const useUserStore = defineStore('user', {
+  state: () => ({
+    user: {
+      id: null,
+      name: '',
+      email: '',
+      role: 'guest',
+      isActive: false
+    },
+    token: '',
+  }),
+  getters: {
+    isLoggedIn: (state) => !!state.token,
+    userRole: (state) => state.user.role
+  },
+  actions: {
+    login(userData, token) {
+      this.user = userData
+      this.token = token
+    },
+    logout() {
+      this.$reset()
+    },
+    updateUser(partialUser) {
+      this.user = { ...this.user, ...partialUser }
+    },
+    async fetchUserFromApi() {
+      const response = await fetch('/api/user')
+      const data = await response.json()
+      this.user = data
+    }
+  },
+  // persist: true
+})
