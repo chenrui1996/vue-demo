@@ -1,10 +1,15 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "allowJs": true,           // 允许导入 JS 文件
+    "checkJs": false,          // 不检查 JS 文件类型（或设为 true 进行检查）
+    "noEmit": true,
     "strict": true,
     "jsx": "preserve",
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@/*": [
